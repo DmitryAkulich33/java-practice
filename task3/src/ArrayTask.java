@@ -15,8 +15,8 @@ public class ArrayTask {
         for(int index = 0; index < array.length; index++){ // считаем сумму элементов массива
             sum = sum + array[index];
         }
-        int average = 0;                                   // вводим переменную average
-        average = sum / size;                              // считаем среднее арифметическое массива
+        double average = 0;                                   // вводим переменную average
+        average = (double) sum / size;                              // считаем среднее арифметическое массива
         System.out.println("sum = " + sum);                // выводим на экран сумму
         System.out.println("average = " + average);        // выводим на экран среднюю величину
     }
