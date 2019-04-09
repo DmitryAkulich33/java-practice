@@ -5,11 +5,11 @@ public class CheckService {
         return list(checkPosition, checkPosition.length - 1);
     }
 
-    public static double list(CheckPosition[] checkPosition, int n){
+    private static double list(CheckPosition[] checkPosition, int n) {
         double sum = checkPosition[n].getCount() * checkPosition[n].getPrice();
-        if(n == 0){
+        if (n == 0) {
             return sum;
         }
-        return sum + list(checkPosition, n -1);
+        return sum + list(checkPosition, n - 1);
     }
 }
