@@ -4,7 +4,7 @@ class Circle extends Shape {
     Circle(double r) {
         this.radius = r;
         if (r <= 0) {
-            throw new IllegalArgumentException("Illegal Argument!!!");
+            throw new IllegalArgumentException();
         }
     }
 

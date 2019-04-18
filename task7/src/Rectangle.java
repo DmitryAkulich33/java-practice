@@ -6,7 +6,7 @@ public final class Rectangle extends Shape {
         this.side1 = a;
         this.side2 = b;
         if (a <= 0 && b <= 0) {
-            throw new IllegalArgumentException("Illegal Argument!!!");
+            throw new IllegalArgumentException();
         }
     }
 
