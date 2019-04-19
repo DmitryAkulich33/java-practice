@@ -2,12 +2,12 @@ public final class Rectangle extends Shape {
     private final double side1;
     private final double side2;
 
-    Rectangle(double a, double b) {
+   Rectangle(double a, double b) {
+        if (a <= 0 && b <= 0) {
+            throw new IllegalArgumentException("Illegal sides. Should be positive number");
+        }
         this.side1 = a;
         this.side2 = b;
-        if (a <= 0 && b <= 0) {
-            throw new IllegalArgumentException();
-        }
     }
 
     double square() {
