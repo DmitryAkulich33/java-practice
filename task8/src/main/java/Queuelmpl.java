@@ -40,15 +40,21 @@ public class Queuelmpl<T> implements Queue<T> {
     }
 
     void addAll(Queuelmpl<? extends T> other) {
+//        рабочий код:
         for (int i = other.beginIndex; i < other.myList.size(); i++) {
             myList.add(other.myList.get(i));
         }
+
+//        не рабочий код:
+
+//        System.arraycopy(other.myList, other.beginIndex, myList, myList.size(),
+//                other.myList.size() - other.beginIndex);
     }
 
     int indexOf(Predicate predicate) {
         for (int i = beginIndex; i < myList.size(); i++) {
             if (predicate.test(myList.get(i))) {
-                return i;
+                return i - beginIndex;
             }
         }
         return -1;
