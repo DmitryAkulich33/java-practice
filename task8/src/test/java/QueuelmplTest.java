@@ -30,7 +30,7 @@ public class QueuelmplTest {
     public void pop() {
         Queuelmpl<Integer> queuelmpl = new Queuelmpl<>();
 
-        Assert.assertEquals(null, queuelmpl.pop());
+        Assert.assertNull(queuelmpl.pop());
 
         queuelmpl.add(1);
         queuelmpl.add(2);
@@ -38,7 +38,7 @@ public class QueuelmplTest {
 
         Assert.assertEquals(1, (int)queuelmpl.pop());
         Assert.assertEquals(2, (int)queuelmpl.pop());
-        Assert.assertEquals(null, queuelmpl.pop());
+        Assert.assertNull(queuelmpl.pop());
     }
 
     @Test
@@ -62,7 +62,7 @@ public class QueuelmplTest {
         queuelmpl.pop();
         queuelmpl.pop();
 
-        Assert.assertEquals(null, queuelmpl.peek());
+        Assert.assertNull(queuelmpl.peek());
     }
 
     @Test
@@ -81,6 +81,5 @@ public class QueuelmplTest {
         Assert.assertEquals(0, queuelmpl.indexOf(predicate));
         queuelmpl.pop();
         Assert.assertEquals(-1, queuelmpl.indexOf(predicate));
-
     }
 }
