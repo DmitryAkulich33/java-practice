@@ -34,6 +34,7 @@ public class Queuelmpl<T> implements Queue<T> {
             return null;
         } else {
             T elem = myList.get(beginIndex);
+            myList.set(beginIndex, null);
             beginIndex++;
             return elem;
         }
@@ -45,7 +46,7 @@ public class Queuelmpl<T> implements Queue<T> {
         }
     }
 
-    int indexOf(Predicate predicate) {
+    int indexOf(Predicate<T> predicate) {
         for (int i = beginIndex; i < myList.size(); i++) {
             if (predicate.test(myList.get(i))) {
                 return i - beginIndex;
