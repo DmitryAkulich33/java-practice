@@ -1,6 +1,6 @@
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Main {
 
@@ -8,8 +8,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList arrayList = new ArrayList();
-        LinkedList linkedList = new LinkedList();
+        List arrayList = new ArrayList();
+        List linkedList = new LinkedList();
 
         long beginTime1 = System.currentTimeMillis();
         addElem(arrayList);
@@ -17,7 +17,7 @@ public class Main {
         System.out.println("Скорость заполнения Arraylist равна: " + (beginTime2 - beginTime1));
 
         long beginTime3 = System.currentTimeMillis();
-        addElem2(linkedList);
+        addElem(linkedList);
         long beginTime4 = System.currentTimeMillis();
         System.out.println("Скорость заполнения LinkedList равна: " + (beginTime4 - beginTime3));
 
@@ -29,32 +29,20 @@ public class Main {
         System.out.println("Скорость выборки чисел наугад в ArraiList равна: " + (beginTime6 - beginTime5));
 
         long beginTime7 = System.currentTimeMillis();
-        setElem2(linkedList);
+        setElem(linkedList);
         long beginTime8 = System.currentTimeMillis();
         System.out.println("Скорость выборки чисел наугад в LinkedList равна: " + (beginTime8 - beginTime7));
     }
 
-    public static void addElem(ArrayList list){
+    public static void addElem(List list){
         for(int i = 0; i < count; i++){
             list.add((int)(Math.random() * 100));
         }
     }
 
-    public static void addElem2(LinkedList list){
-        for(int i = 0; i < count; i++){
-            list.add((int)(Math.random() * 100));
-        }
-    }
-    public static void setElem(ArrayList list){
+    public static void setElem(List list){
         for(int i = 0; i < count; i++){
             list.get((int)(Math.random()* count));
         }
     }
-    public static void setElem2(LinkedList list){
-        for(int i = 0; i < count; i++){
-            list.get((int)(Math.random()* count));
-        }
-    }
-
-
 }
