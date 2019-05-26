@@ -10,28 +10,23 @@ public class QueuelmplTest {
     @Test
     public void add() {
         Queuelmpl<Integer> queuelmpl = new Queuelmpl<>();
+        Assert.assertNull(queuelmpl.peek());
         queuelmpl.add(3);
-        queuelmpl.add(4);
-
         Assert.assertEquals(3, (int)queuelmpl.peek());
     }
 
     @Test
     public void peek() {
         Queuelmpl<Integer> queuelmpl = new Queuelmpl<>();
+        Assert.assertNull(queuelmpl.peek());
         queuelmpl.add(1);
-        queuelmpl.add(2);
-        queuelmpl.add(3);
-
         Assert.assertEquals(1, (int)queuelmpl.peek());
     }
 
     @Test
     public void pop() {
         Queuelmpl<Integer> queuelmpl = new Queuelmpl<>();
-
-        Assert.assertNull(queuelmpl.pop());
-
+        Assert.assertNull(queuelmpl.peek());
         queuelmpl.add(1);
         queuelmpl.add(2);
 
