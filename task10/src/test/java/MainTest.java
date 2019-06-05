@@ -16,8 +16,7 @@ public class MainTest {
         map.put(3, "Dima");
         map.put(4, "Anna");
         map.put(5, "Stas");
-
-        Main main = new Main();
+        
         Map<String, Collection<Integer>> result = Main.reverse(map);
         Assert.assertTrue(result.containsKey("Dima"));
         Assert.assertTrue(result.containsKey("Kate"));
