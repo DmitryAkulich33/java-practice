@@ -1,10 +1,7 @@
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -26,5 +23,9 @@ public class MainTest {
         Assert.assertTrue(result.containsKey("Kate"));
         Assert.assertTrue(result.containsKey("Anna"));
         Assert.assertTrue(result.containsKey("Stas"));
+        Assert.assertTrue(result.containsValue(Collections.singletonList(2)));
+        Assert.assertTrue(result.containsValue(Collections.singletonList(4)));
+        Assert.assertTrue(result.containsValue(Collections.singletonList(5)));
+        Assert.assertTrue(result.containsValue(Arrays.asList(1,3)));
     }
 }
