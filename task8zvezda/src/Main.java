@@ -4,11 +4,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Integer> list1 = new ArrayList<Integer>();
-        ArrayList<Integer> list2 = new ArrayList<Integer>();
+        ArrayList<Integer> dataAboutWorkers = new ArrayList<Integer>();
+        ArrayList<Integer> listOfGroups = new ArrayList<Integer>();
 
-        int count;                                        // номер группы, в которую следует отнести работника
-        int x;                                            // вспомогательная переменная для расчетов
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество сотрудников");
@@ -16,24 +14,24 @@ public class Main {
 
         System.out.println("Введите входные данные для каждого сотрудника");
         for (int i = 0; i < worker; i++) {
-            list1.add(scanner.nextInt());
+            dataAboutWorkers.add(scanner.nextInt());
         }
 
-        for (int i = 0; i < list1.size(); i++) {
-            count = 0;
-            x = i;
+        for (int i = 0; i < dataAboutWorkers.size(); i++) {
+            int group = 0;
+            int x = i;
             do {
-                x = list1.get(x);
+                x = dataAboutWorkers.get(x);
                 x--;
-                count++;
+                group++;
             } while (x >= 0);
-            list2.add(count);                            // заполняем аррайлист номерами групп
+            listOfGroups.add(group);
         }
 
-        int answer = list2.get(0);
-        for (int i = 1; i < list2.size() - 1; i++) {     // находим максимальное значение
-            if (answer < list2.get(i)) {
-                answer = list2.get(i);
+        int answer = listOfGroups.get(0);
+        for (int i = 1; i < listOfGroups.size() - 1; i++) {
+            if (answer < listOfGroups.get(i)) {
+                answer = listOfGroups.get(i);
             }
         }
         System.out.println("Ответ: " + answer);
