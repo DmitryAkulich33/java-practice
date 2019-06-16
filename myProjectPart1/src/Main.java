@@ -16,16 +16,16 @@ public class Main {
         }
 
         for (int i = 0; i < 5; i++) {
-            image = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            doScreenshot(image);
+            doScreenshot();
             System.out.println("Сделан скриншот " + (i + 1));
             doImageToGrey(image);
             robot.delay(1000);
         }
     }
 
-    public static void doScreenshot(BufferedImage img) throws IOException {
-        ImageIO.write(img, "png", new File("screenshot.png"));
+    public static void doScreenshot() throws IOException {
+        image = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+        ImageIO.write(image, "png", new File("screenshot.png"));
 
     }
 
