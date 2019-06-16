@@ -16,15 +16,18 @@ public class Main {
             e.printStackTrace();
         }
 
-        image = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-        imageToFind = ImageIO.read(new File("D:\\test.png"));
-        doScreenshot(image);
+
+        imageToFind = ImageIO.read(new File("D:\\Stormnet\\java-practice\\myProjectPart2\\test.png"));
+        doScreenshot();
+        doImageToGrey(image);
+
         findImage(image, imageToFind);
-//        doImageToGrey(image);
+
     }
 
-    public static void doScreenshot(BufferedImage img) throws IOException {
-        ImageIO.write(img, "png", new File("screenshot.png"));
+    public static void doScreenshot() throws IOException {
+        image = robot.createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+        ImageIO.write(image, "png", new File("screenshot.png"));
 
     }
 
@@ -56,18 +59,18 @@ public class Main {
             }
         }
     }
-//    public static void doImageToGrey(BufferedImage img) throws IOException {
-//
-//        for (int i = 0; i < img.getWidth(); i++) {
-//            for (int j = 0; j < img.getHeight(); j++) {
-//                int rgb = img.getRGB(i, j);
-//                int r = (rgb >> 16) & 0xff;
-//                int g = (rgb >> 8) & 0xff;
-//                int b = rgb & 0xff;
-//                int k = (int) (.2126 * r + .7152 * g + .0722 * b);
-//                img.setRGB(i, j, (k << 16) | (k << 8) | k);
-//            }
-//        }
-//        ImageIO.write(img, "png", new File("screenshot1.png"));
-//    }
+    public static void doImageToGrey(BufferedImage img) throws IOException {
+
+        for (int i = 0; i < img.getWidth(); i++) {
+            for (int j = 0; j < img.getHeight(); j++) {
+                int rgb = img.getRGB(i, j);
+                int r = (rgb >> 16) & 0xff;
+                int g = (rgb >> 8) & 0xff;
+                int b = rgb & 0xff;
+                int k = (int) (.2126 * r + .7152 * g + .0722 * b);
+                img.setRGB(i, j, (k << 16) | (k << 8) | k);
+            }
+        }
+        ImageIO.write(img, "png", new File("screenshot1.png"));
+    }
 }
