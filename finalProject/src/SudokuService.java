@@ -110,17 +110,17 @@ class SudokuService extends Images {
 
     static void findAllImages(BufferedImage img, ArrayList<BufferedImage> arrayList, int x1, int y1,
                               ArrayList<BufferedImage> arrayList2) {
-        int a = thinLine.getHeight();
-        int b = thinLine.getWidth();
-        int c = boldLine.getWidth();
-        int e = 9 * a + 6 * b + 3 * c;
+        int thinHeight = thinLine.getHeight();
+        int thinWidth = thinLine.getWidth();
+        int boldWidth = boldLine.getWidth();
+        int playBoardWidth = 9 * thinHeight + 6 * thinWidth + 3 * boldWidth;
 
-        for (int z = 0; z < e; z = z + 3 * a + 2 * b + c) {
-            for (int w = z; w < 3 * a + 3 + z; w = w + a + b) {
-                for (int q = 0; q < e; q = q + a * 3 + 2 * b + c) {
-                    for (int d = x1 + q; d < (x1 + 3 * a + 2 * b + q); d = (d + a + b)) {
+        for (int z = 0; z < playBoardWidth; z = z + 3 * thinHeight + 2 * thinWidth + boldWidth) {
+            for (int w = z; w < 3 * thinHeight + 3 + z; w = w + thinHeight + thinWidth) {
+                for (int q = 0; q < playBoardWidth; q = q + thinHeight * 3 + 2 * thinWidth + boldWidth) {
+                    for (int d = x1 + q; d < (x1 + 3 * thinHeight + 2 * thinWidth + q); d = (d + thinHeight + thinWidth)) {
                         for (int i = 0; i < arrayList.size(); i++) {
-                            addFoundImages(img, arrayList.get(i), d, (d + a), y1 + w, y1 + a + w,
+                            addFoundImages(img, arrayList.get(i), d, (d + thinHeight), y1 + w, y1 + thinHeight + w,
                                     arrayList2);
                         }
                     }
