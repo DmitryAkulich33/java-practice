@@ -32,8 +32,8 @@ public class Main {
     }
 
     public static void findImage(BufferedImage img, BufferedImage imgToFind){
-        for (int x = 0; x < img.getWidth(); x++) {
-            for (int y = 0; y < img.getHeight(); y++) {
+        for (int x = 0; x < img.getWidth() - imgToFind.getWidth(); x++) {
+            for (int y = 0; y < img.getHeight() - imgToFind.getHeight(); y++) {
                 boolean invalid = false;
                 int k = x;
                 for (int a = 0; a < imgToFind.getWidth(); a++) {
