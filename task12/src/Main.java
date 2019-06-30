@@ -1,7 +1,7 @@
 public class Main {
 
     public static void main(String[] args) {
-        int length = 1000000;
+        int length = 10000000;
         int[] arr = new int[length];
         for (int i = 0; i < length; i++) {
             arr[i] = (int) (Math.random() * 50);
@@ -11,21 +11,22 @@ public class Main {
         parallelMergeSort(arr, 0, length - 1, countsOfThreads);
         long endTime1 = System.currentTimeMillis();
         System.out.println(endTime1 - startTime1);
+
     }
 
-    private static void parallelMergeSort(int[] array, int start, int end, int count){
-        if(end - start > 0){
-            if (count <= 1){
+    private static void parallelMergeSort(int[] array, int start, int end, int count) {
+        if (end - start > 0) {
+            if (count <= 1) {
                 mergeSort(array, start, end);
             } else {
-                Thread leftArray = new Thread(){
-                    public void run(){
-                        parallelMergeSort(array, start, end/2, count - 1);
+                Thread leftArray = new Thread() {
+                    public void run() {
+                        parallelMergeSort(array, start, end / 2, count - 1);
                     }
                 };
-                Thread rightArray = new Thread(){
-                    public void run(){
-                        parallelMergeSort(array, (end/2 + 1), end, count - 1);
+                Thread rightArray = new Thread() {
+                    public void run() {
+                        parallelMergeSort(array, (end / 2 + 1), end, count - 1);
                     }
                 };
                 leftArray.start();
@@ -34,20 +35,18 @@ public class Main {
                 try {
                     leftArray.join();
                     rightArray.join();
-                } catch (InterruptedException e){
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
 
-                merge(array, start, end/2, end);
+                merge(array, start, end / 2, end);
             }
         }
     }
 
-    private static void mergeSort(int[] array, int start, int end) {
-        if (start == end) {
-            return;
-        }
-        if (end - start > 0) {
+    public static void mergeSort(int[] array, int start, int end) {
+        if (start < end) {
+//            int mid = (start + end) / 2;
             mergeSort(array, start, (start + end) / 2);
             mergeSort(array, (start + end) / 2 + 1, end);
             merge(array, start, (start + end) / 2, end);
@@ -55,48 +54,26 @@ public class Main {
     }
 
     private static void merge(int[] array, int start, int mid, int end) {
-        int[] newArray = new int[array.length];
-        int begin1 = start;
-        int begin2 = mid + 1;
-        int index = start;
-        while(begin1 <= mid && begin2 <= end)
-        {
-            if(array[begin1]<array[begin2])
-            {
-                newArray[index] = array[begin1];
-                begin1 = begin1 + 1;
-            }
+
+        int n = end - start + 1;
+        int[] Temp = new int[n];
+
+        int i = start;
+        int j = mid + 1;
+        int k = 0;
+
+        while (i <= mid || j <= end) {
+            if (i > mid)
+                Temp[k++] = array[j++];
+            else if (j > end)
+                Temp[k++] = array[i++];
+            else if (array[i] < array[j])
+                Temp[k++] = array[i++];
             else
-            {
-                newArray[index] = array[begin2];
-                begin2 = begin2+1;
-            }
-            index++;
+                Temp[k++] = array[j++];
         }
-        if(begin1 > mid)
-        {
-            while(begin2 <= end)
-            {
-                newArray[index] = array[begin2];
-                index++;
-                begin2++;
-            }
-        }
-        else
-        {
-            while(begin1 <= mid)
-            {
-                newArray[index] = array[begin1];
-                index++;
-                begin1++;
-            }
-        }
-        int k = start;
-        while(k < index)
-        {
-            array[k] = newArray[k];
-            k++;
-        }
+        for (j = 0; j < n; j++)
+            array[start + j] = Temp[j];
     }
 }
 
