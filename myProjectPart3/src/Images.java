@@ -22,8 +22,6 @@ class Images {
     static BufferedImage thinLine;
     static int playBoardX1 = 0;
     static int playBoardY1 = 0;
-    static int tempX1 = 0;
-    static int tempY1 = 0;
 
     static {
         try {

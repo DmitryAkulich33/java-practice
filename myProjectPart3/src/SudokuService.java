@@ -23,7 +23,9 @@ class SudokuService extends Images {
         }
     }
 
-    static void findPoint(BufferedImage img, BufferedImage imgToFind) {
+    static Point findPoint(BufferedImage img, BufferedImage imgToFind) {
+        int x1 = 0;
+        int y1 = 0;
         for (int x = 0; x < img.getWidth() - imgToFind.getWidth(); x++) {
             for (int y = 0; y < img.getHeight() - imgToFind.getHeight(); y++) {
                 boolean invalid = false;
@@ -45,11 +47,12 @@ class SudokuService extends Images {
                     }
                 }
                 if (!invalid) {
-                    tempX1 = x;
-                    tempY1 = y;
+                    x1 = x;
+                    y1 = y;
                 }
             }
         }
+        return new Point(x1, y1);
     }
 
     private static void addFoundImages(BufferedImage img, BufferedImage imgToFind, int x1, int x2, int y1, int y2,
