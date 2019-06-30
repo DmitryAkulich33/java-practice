@@ -21,12 +21,12 @@ public class Main {
             } else {
                 Thread leftArray = new Thread() {
                     public void run() {
-                        parallelMergeSort(array, start, end / 2, count - 1);
+                        parallelMergeSort(array, start, end / 2, count / 2);
                     }
                 };
                 Thread rightArray = new Thread() {
                     public void run() {
-                        parallelMergeSort(array, (end / 2 + 1), end, count - 1);
+                        parallelMergeSort(array, (end / 2 + 1), end, count / 2);
                     }
                 };
                 leftArray.start();
