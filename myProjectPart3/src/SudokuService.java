@@ -23,7 +23,7 @@ class SudokuService extends Images {
         }
     }
 
-    static void findImageUpSide(BufferedImage img, BufferedImage imgToFind) {
+    static void findPoint(BufferedImage img, BufferedImage imgToFind) {
         for (int x = 0; x < img.getWidth() - imgToFind.getWidth(); x++) {
             for (int y = 0; y < img.getHeight() - imgToFind.getHeight(); y++) {
                 boolean invalid = false;
@@ -45,35 +45,8 @@ class SudokuService extends Images {
                     }
                 }
                 if (!invalid) {
-                    playBoardX1 = x;
-                }
-            }
-        }
-    }
-
-    static void findImageLeftSide(BufferedImage img, BufferedImage imgToFind) {
-        for (int x = 0; x < img.getWidth() - imgToFind.getWidth(); x++) {
-            for (int y = 0; y < img.getHeight() - imgToFind.getHeight(); y++) {
-                boolean invalid = false;
-                int k = x;
-                for (int a = 0; a < imgToFind.getWidth(); a++) {
-                    int l = y;
-                    for (int b = 0; b < imgToFind.getHeight(); b++) {
-                        if (imgToFind.getRGB(a, b) != img.getRGB(k, l)) {
-                            invalid = true;
-                            break;
-                        } else {
-                            l++;
-                        }
-                    }
-                    if (invalid) {
-                        break;
-                    } else {
-                        k++;
-                    }
-                }
-                if (!invalid) {
-                    playBoardY1 = y;
+                    tempX1 = x;
+                    tempY1 = y;
                 }
             }
         }
