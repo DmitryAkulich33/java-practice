@@ -22,9 +22,9 @@ public class Sudoku extends Images {
 
         SudokuService.doScreenshot();
         SudokuService.doImageToGrey(image);
-        
-        playBoardX1 = (int)new Point(SudokuService.findPoint(image, playBoardUpSide)).getX();
-        playBoardY1 = (int)new Point(SudokuService.findPoint(image, playBoardLeftSide)).getY();
+
+        playBoardX1 = (int)SudokuService.findPoint(image, playBoardUpSide).getX();
+        playBoardY1 = (int)SudokuService.findPoint(image, playBoardLeftSide).getY();
 
         for(int i = 0; i < 3; i++){
             SudokuService.findAllImages(image, list, playBoardX1, playBoardY1, list2);
