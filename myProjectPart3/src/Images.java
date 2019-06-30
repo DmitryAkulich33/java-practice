@@ -5,23 +5,81 @@ import java.io.IOException;
 
 class Images {
 
-    static BufferedImage image;
-    static BufferedImage playBoardUpSide;
-    static BufferedImage playBoardLeftSide;
-    static BufferedImage key0;
-    static BufferedImage key1;
-    static BufferedImage key2;
-    static BufferedImage key3;
-    static BufferedImage key4;
-    static BufferedImage key5;
-    static BufferedImage key6;
-    static BufferedImage key7;
-    static BufferedImage key8;
-    static BufferedImage key9;
-    static BufferedImage boldLine;
-    static BufferedImage thinLine;
+
+    private static BufferedImage playBoardUpSide;
+    private static BufferedImage playBoardLeftSide;
+    private static BufferedImage key0;
+    private static BufferedImage key1;
+    private static BufferedImage key2;
+    private static BufferedImage key3;
+    private static BufferedImage key4;
+    private static BufferedImage key5;
+    private static BufferedImage key6;
+    private static BufferedImage key7;
+    private static BufferedImage key8;
+    private static BufferedImage key9;
+    private static BufferedImage boldLine;
+    private static BufferedImage thinLine;
+    static BufferedImage image = null;
     static int playBoardX1 = 0;
     static int playBoardY1 = 0;
+
+
+    static BufferedImage getPlayBoardUpSide() {
+        return playBoardUpSide;
+    }
+
+    static BufferedImage getPlayBoardLeftSide() {
+        return playBoardLeftSide;
+    }
+
+    static BufferedImage getKey0() {
+        return key0;
+    }
+
+    static BufferedImage getKey1() {
+        return key1;
+    }
+
+    static BufferedImage getKey2() {
+        return key2;
+    }
+
+    static BufferedImage getKey3() {
+        return key3;
+    }
+
+    static BufferedImage getKey4() {
+        return key4;
+    }
+
+    static BufferedImage getKey5() {
+        return key5;
+    }
+
+    static BufferedImage getKey6() {
+        return key6;
+    }
+
+    static BufferedImage getKey7() {
+        return key7;
+    }
+
+    static BufferedImage getKey8() {
+        return key8;
+    }
+
+    static BufferedImage getKey9() {
+        return key9;
+    }
+
+    static BufferedImage getBoldLine() {
+        return boldLine;
+    }
+
+    static BufferedImage getThinLine() {
+        return thinLine;
+    }
 
     static {
         try {

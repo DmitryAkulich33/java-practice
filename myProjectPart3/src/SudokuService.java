@@ -86,9 +86,9 @@ class SudokuService extends Images {
 
     static void findAllImages(BufferedImage img, ArrayList<BufferedImage> arrayList, int x1, int y1,
                               ArrayList<BufferedImage> arrayList2) {
-        int a = thinLine.getHeight();
-        int b = thinLine.getWidth();
-        int c = boldLine.getWidth();
+        int a = getThinLine().getHeight();
+        int b = getThinLine().getWidth();
+        int c = getBoldLine().getWidth();
         int e = 9 * a + 6 * b + 3 * c;
 
         for (int z = 0; z < e; z = z + 3 * a + 2 * b + c) {
@@ -110,25 +110,25 @@ class SudokuService extends Images {
         int count = 0;
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (arraylist.get(count) == key0) {
+                if (arraylist.get(count) == getKey0()) {
                     array[i][j] = 0;
-                } else if (arraylist.get(count) == key1) {
+                } else if (arraylist.get(count) == getKey1()) {
                     array[i][j] = 1;
-                } else if (arraylist.get(count) == key2) {
+                } else if (arraylist.get(count) == getKey2()) {
                     array[i][j] = 2;
-                } else if (arraylist.get(count) == key3) {
+                } else if (arraylist.get(count) == getKey3()) {
                     array[i][j] = 3;
-                } else if (arraylist.get(count) == key4) {
+                } else if (arraylist.get(count) == getKey4()) {
                     array[i][j] = 4;
-                } else if (arraylist.get(count) == key5) {
+                } else if (arraylist.get(count) == getKey5()) {
                     array[i][j] = 5;
-                } else if (arraylist.get(count) == key6) {
+                } else if (arraylist.get(count) == getKey6()) {
                     array[i][j] = 6;
-                } else if (arraylist.get(count) == key7) {
+                } else if (arraylist.get(count) == getKey7()) {
                     array[i][j] = 7;
-                } else if (arraylist.get(count) == key8) {
+                } else if (arraylist.get(count) == getKey8()) {
                     array[i][j] = 8;
-                } else if (arraylist.get(count) == key9) {
+                } else if (arraylist.get(count) == getKey9()) {
                     array[i][j] = 9;
                 }
                 count++;
