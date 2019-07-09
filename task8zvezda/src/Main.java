@@ -1,37 +1,31 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<Integer> dataAboutWorkers = new ArrayList<Integer>();
-        ArrayList<Integer> listOfGroups = new ArrayList<Integer>();
-
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите количество сотрудников");
-        int worker = scanner.nextInt();
+        int[] dataAboutWorkers = new int[scanner.nextInt()];
 
         System.out.println("Введите входные данные для каждого сотрудника");
-        for (int i = 0; i < worker; i++) {
-            dataAboutWorkers.add(scanner.nextInt());
+        for (int i = 0; i < dataAboutWorkers.length; i++) {
+            dataAboutWorkers[i] = scanner.nextInt();
         }
 
-        for (int i = 0; i < dataAboutWorkers.size(); i++) {
+        int answer = 0;
+
+
+        for (int i = 0; i < dataAboutWorkers.length; i++) {
             int group = 0;
-            int x = i;
+            int temp = i;
             do {
-                x = dataAboutWorkers.get(x);
-                x--;
+                temp = dataAboutWorkers[temp] - 1;
                 group++;
-            } while (x >= 0);
-            listOfGroups.add(group);
-        }
 
-        int answer = listOfGroups.get(0);
-        for (int i = 1; i < listOfGroups.size() - 1; i++) {
-            if (answer < listOfGroups.get(i)) {
-                answer = listOfGroups.get(i);
+            } while (temp >= 0);
+            if (answer <= group) {
+                answer = group;
             }
         }
         System.out.println("Ответ: " + answer);
