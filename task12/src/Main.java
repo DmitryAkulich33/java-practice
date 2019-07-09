@@ -31,7 +31,7 @@ public class Main {
         try {
             threads.get(0).join();
         } catch (InterruptedException e) {
-            System.out.println("InterruptedException");
+            System.out.println(e.getMessage());
         }
         for (int i = 1; i < count; i++){
             int left = i * length / count - 1;
@@ -39,7 +39,7 @@ public class Main {
             try {
                 threads.get(i).join();
             } catch (InterruptedException e) {
-                System.out.println("InterruptedException");
+                System.out.println(e.getMessage());
             }
             merge(array, 0, left, right);
         }
